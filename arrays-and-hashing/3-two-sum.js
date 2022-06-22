@@ -14,17 +14,13 @@
 
 let twoSum = function (nums, target) {
   const numsObj = {};
-  let indices = [];
-
   for (let i = 0; i < nums.length; i++) {
     const diff = numsObj[target - nums[i]];
     if (diff !== undefined) {
-      indices = diff > i ? [i, diff] : [diff, i];
-    } else {
-      numsObj[nums[i]] = i;
+      return diff > i ? [i, diff] : [diff, i];
     }
+    numsObj[nums[i]] = i;
   }
-  return indices;
 };
 
 /** --------- */
